@@ -13,23 +13,16 @@ ft_memmove.c \
 ft_strlcpy.c \
 ft_strlcat.c 
     
-OBJ := $(SRC:%.c=%.o)
+OBJS := $(SRC:%.c=%.o)
+CC = gcc
+CCFLAGS = -Wall -Wextra -Werror
+RM = rm -f
 
-all: executableName
+all: $(NAME)
 
-executableName: main.o test.o
-    gcc -Wextra -Wall -Werror main.o -o executableName
-
-main.o: main.c
-    gcc -Wextra -Wall -Werror -c main.c -o main.o
-
-test.o: test.c
-    gcc -Wextra -Wall -Werror -c test.c -o test.o
+$(NAME): $(OBJS)
 
 clean:
-    rm -f main.o test.o
+    $(RM) $(OBJS)
+    
 
-fclean: clean
-    rm -f executableName
-
-re: fclean all
