@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 12:21:17 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/10/06 18:38:11 by vafanaso         ###   ########.fr       */
+/*   Created: 2024/10/08 09:09:24 by vafanaso          #+#    #+#             */
+/*   Updated: 2024/10/08 09:09:51 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *arr)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
+	t_list	*temp_ptr;
 
-	i = 0;
-	while (*arr)
+	while (*lst != NULL)
 	{
-		i++;
-		arr++;
+		temp_ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp_ptr;
 	}
-	return (i);
+	free(*lst);
+	*lst = NULL;
 }

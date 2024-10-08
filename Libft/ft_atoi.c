@@ -1,32 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 11:05:53 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/09/29 12:43:01 by vafanaso         ###   ########.fr       */
+/*   Created: 2024/09/29 15:38:02 by vafanaso          #+#    #+#             */
+/*   Updated: 2024/09/29 16:19:26 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t num)
+int	ft_isspace(int c)
 {
-	size_t	i;
-	size_t	j;
+	if (c == 9 || c == 10 || c == 11 || c == 12 || c == 13 || c == 32)
+		return (1);
+	return (0);
+}
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	j;
+	int	res;
 
 	i = 0;
-	j = 0;
-	while (dest[i] && i < num)
+	j = 1;
+	res = 0;
+	while (ft_isspace(str[i]))
 		i++;
-	while (src[j] && (i + j + 1) < num)
+	if (str[i] == '+' && str[i + 1] != '-')
+		i++;
+	if (str[i] == '-')
 	{
-		dest[i + j] = src[j];
-		j++;
+		j = -1;
+		i++;
 	}
-	if (i < num)
-		dest[i + j] = '\0';
-	return (i + ft_strlen(src));
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10;
+		res = res + (str[i] - 48);
+		i++;
+	}
+	res *= j;
+	return (res);
 }

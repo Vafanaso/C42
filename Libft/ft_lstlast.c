@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 12:21:17 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/10/06 18:38:11 by vafanaso         ###   ########.fr       */
+/*   Created: 2024/10/08 09:06:46 by vafanaso          #+#    #+#             */
+/*   Updated: 2024/10/08 09:07:17 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *arr)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
+	t_list	*temp_ptr;
 
-	i = 0;
-	while (*arr)
+	if (lst == NULL)
+		return (NULL);
+	temp_ptr = lst;
+	while (temp_ptr->next != NULL)
 	{
-		i++;
-		arr++;
+		temp_ptr = temp_ptr->next;
 	}
-	return (i);
+	return (temp_ptr);
 }

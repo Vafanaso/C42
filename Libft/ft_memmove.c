@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memove.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:15:32 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/09/26 10:52:03 by vafanaso         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:00:41 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memove(const void *src, void *dest, size_t num)
+void	*ft_memmove(void *dest, const void *src, size_t num)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
 
-	d = (unsigned char *) dest;
-	s = (unsigned char *) src;
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (!src && !dest)
+		return (NULL);
 	if (d < s)
 	{
-		while (num)
-		{
+		while (num-- > 0)
 			*d++ = *s++;
-			num--;
-		}
 	}
 	else
 	{
-		d = d + num;
-		s = s + num;
-		while (num)
-		{
-			*d-- = *s--;
-			num--;
-		}
+		while (num-- > 0)
+			d[num] = s[num];
 	}
 	return (dest);
 }

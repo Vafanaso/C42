@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 12:21:17 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/10/06 18:38:11 by vafanaso         ###   ########.fr       */
+/*   Created: 2024/09/30 11:10:05 by vafanaso          #+#    #+#             */
+/*   Updated: 2024/09/30 11:43:24 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *arr)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	char	*tmp;
+	int		j;
+	int		i;
+	size_t	len;
 
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	tmp = (char *)malloc(len * sizeof(char));
 	i = 0;
-	while (*arr)
+	j = 0;
+	if (!tmp)
+		return (NULL);
+	while (s1[i])
 	{
-		i++;
-		arr++;
+		tmp[j++] = s1[i++];
 	}
-	return (i);
+	i = 0;
+	while (s2[i])
+	{
+		tmp[j++] = s2[i++];
+	}
+	tmp[j] = 0;
+	return (tmp);
 }

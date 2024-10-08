@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 12:21:17 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/10/06 18:38:11 by vafanaso         ###   ########.fr       */
+/*   Created: 2024/09/29 13:39:19 by vafanaso          #+#    #+#             */
+/*   Updated: 2024/10/03 15:02:57 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-size_t	ft_strlen(const char *arr)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	unsigned int	i;
 
 	i = 0;
-	while (*arr)
+	while (s[i])
 	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i++;
-		arr++;
 	}
-	return (i);
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (NULL);
 }

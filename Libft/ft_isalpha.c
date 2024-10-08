@@ -6,11 +6,9 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:20:27 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/09/23 12:08:40 by vafanaso         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:57:18 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_isalpha(int c)
 {

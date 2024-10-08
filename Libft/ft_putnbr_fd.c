@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 12:47:36 by vafanaso          #+#    #+#             */
-/*   Updated: 2024/09/29 12:43:52 by vafanaso         ###   ########.fr       */
+/*   Created: 2024/10/07 15:57:13 by vafanaso          #+#    #+#             */
+/*   Updated: 2024/10/07 15:58:58 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t num)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	int		div;
+	char	mod;
 
-	i = 0;
-	if (num == 0)
+	div = 1000000000;
+	if (n == 0)
 	{
-		while (src[i] != '\0')
-		{
-			i++;
-		}
-		return (i);
+		ft_putchar_fd('0', fd);
+		return ;
 	}
-	while (i < num - 1 && src[i] != '\0')
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	if (n < 0 && n != -2147483648)
 	{
-		dest[i] = src[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-	if (i < num)
+	while (n < div && n != -2147483648)
+		div = div / 10;
+	while (div > 0 && n != -2147483648)
 	{
-		dest[i] = '\0';
+		mod = (n / div) + '0';
+		n = n % div;
+		div = div / 10;
+		ft_putchar_fd(mod, fd);
 	}
-	while (src[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
 }
