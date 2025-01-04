@@ -6,7 +6,7 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:06:59 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/04 13:24:19 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:03:11 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int	ft_printformat(char character, va_list args)
 	else if (character == '%')
 		count += print_c('%');
 	else if (character == 'x' || character == 'X')
-		count += print_x(va_arg(args, int), character);
+		count += print_x(va_arg(args, unsigned int), character);
+	else if (character == 'p')
+		count += print_p(va_arg(args, unsigned long int));
 
 	return (count);
 }

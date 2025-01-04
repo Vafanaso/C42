@@ -6,28 +6,11 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 12:05:46 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/04 14:15:22 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/04 15:02:33 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-// int	iteration(const char *format, va_list args)
-// {
-// 	int	count;
-
-// 	count = 0;
-// 	while (*format)
-// 	{
-// 		while (*format != '%')
-// 		{
-// 			count += write(1, format, 1);
-// 			format++;
-// 		}
-// 		count += ft_printformat(*(++format), args);
-// 	}
-// 	return (count);
-// }
 
 int	ft_printf(const char *format, ...)
 {
@@ -57,6 +40,7 @@ int	main(void)
 	// res = ft_printf("Hello %c i want %s and %d or %i and %u with
 	// 					% % \n ", 'u', " Ice cream ", 6, 765,
 	// 				- 15);
-	res = ft_printf("hello, x is %x and X is %x and %X \n", 73, 452, 27485);
+	// res = ft_printf("hello, x is %x and X is %x and %p \n", 73, 452, 27485);
+	res = ft_printf(" %p %p \n", (void *)LONG_MIN, (void *)LONG_MAX);
 	return (0);
 }
