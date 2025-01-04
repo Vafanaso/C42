@@ -6,7 +6,7 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 12:59:33 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/03 17:37:59 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/04 14:16:00 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ int	print_u(unsigned int i)
 	count += print_c((i % 10) + '0');
 	return (count);
 }
-int	print_x(int i)
+
+int	print_x(int i, char format)
 {
+	int		count;
+	char	*hex;
+
+	count = 0;
+	hex = "0123456789abcdef";
+	if (format == 'X')
+		hex = "0123456789ABCDEF";
+	if (i > 16)
+		count += print_x(i / 16, format);
+	count += print_c(hex[i % 16]);
+	return (count);
 }

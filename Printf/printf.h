@@ -12,5 +12,6 @@ int	ft_printf(const char *format, ...);
 int	print_s(char *str);
 int	print_di(int i);
 int	print_u(unsigned int i);
+int	print_x(int i, char format);
 
 #endif
