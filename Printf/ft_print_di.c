@@ -6,7 +6,7 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:37:10 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/07 11:22:28 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:31:54 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	print_di(int i)
 {
-	int count;
-	long num;
+	int		count;
+	long	num;
 
 	num = i;
 	count = 0;

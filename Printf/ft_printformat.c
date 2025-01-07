@@ -6,18 +6,17 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:06:59 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/07 11:22:47 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:39:37 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_printformat(char character, va_list args)
 {
-	int count;
+	int	count;
 
 	count = 0;
-
 	if (character == 'c')
 		count += print_c(va_arg(args, int));
 	else if (character == 's')
@@ -32,6 +31,5 @@ int	ft_printformat(char character, va_list args)
 		count += print_x(va_arg(args, unsigned int), character);
 	else if (character == 'p')
 		count += print_p(va_arg(args, unsigned long int));
-
 	return (count);
 }

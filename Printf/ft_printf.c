@@ -6,7 +6,7 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 12:05:46 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/07 11:22:41 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:25:35 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void)
 	// res = ft_printf("Hello %c i want %s and %d or %i and %u with
 	// 					% % \n ", 'u', " Ice cream ", 6, 765,
 	// 				- 15);
-	// res = ft_printf("hello, x is %x and X is %x and %p \n", 73, 452, 27485);
-	res = ft_printf(" %p %p \n", (void *)LONG_MIN, (void *)LONG_MAX);
+	res = ft_printf("hello, x is %x and X is %x and %i \n", 73, 452, 27485);
+	// res = ft_printf(" %p %p \n", (void *)LONG_MIN, (void *)LONG_MAX);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vafanaso <vafanaso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 14:35:20 by vafanaso          #+#    #+#             */
-/*   Updated: 2025/01/07 11:22:30 by vafanaso         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:34:20 by vafanaso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_hexptr(unsigned long int ptr)
 
 int	print_p(unsigned long int ptr)
 {
-	long unsigned int count;
+	long unsigned int	count;
 
 	count = 0;
 	if (ptr == 0)
